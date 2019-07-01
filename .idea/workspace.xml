@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="32ce9eca-774c-44d7-a289-1f123019d5a9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/600054_3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/600054_3.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CitiCup.model" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CitiCup.model.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CitiCup_cut.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CitiCup_cut.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_train.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_train.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,7 +15,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/CitiCup_ModelAnalysis_NeuralNetwork$model_test.coverage" NAME="model_test Coverage Results" MODIFIED="1561983144874" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CitiCup_ModelAnalysis_NeuralNetwork$model_test.coverage" NAME="model_test Coverage Results" MODIFIED="1561984552941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CitiCup_ModelAnalysis_NeuralNetwork$model_train.coverage" NAME="model_train Coverage Results" MODIFIED="1561985868652" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CitiCup_ModelAnalysis_NeuralNetwork$KillTags.coverage" NAME="KillTags Coverage Results" MODIFIED="1561703735586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CitiCup_ModelAnalysis_NeuralNetwork$test.coverage" NAME="test Coverage Results" MODIFIED="1561946236315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CitiCup_ModelAnalysis_NeuralNetwork$train.coverage" NAME="train Coverage Results" MODIFIED="1561776302994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -30,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
+            <state relative-caret-position="1900">
+              <caret line="76" column="11" selection-start-line="76" selection-start-column="11" selection-end-line="76" selection-end-column="11" />
               <folding>
                 <element signature="e#79#113#0" expanded="true" />
               </folding>
@@ -42,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/model_train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="16" selection-start-line="16" selection-end-line="19" selection-end-column="42" />
+            <state relative-caret-position="225">
+              <caret line="42" column="50" lean-forward="true" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
               <folding>
                 <element signature="e#79#113#0" expanded="true" />
               </folding>
@@ -57,8 +60,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/smart_open/smart_open_lib.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9500">
-              <caret line="388" column="37" selection-start-line="388" selection-start-column="37" selection-end-line="388" selection-end-column="37" />
+            <state relative-caret-position="9428">
+              <caret line="392" selection-start-line="392" selection-end-line="392" />
+              <folding>
+                <element signature="e#309#322#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,8 +131,8 @@
         <option value="$PROJECT_DIR$/Train.py" />
         <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/model_train.py" />
         <option value="$PROJECT_DIR$/model_test.py" />
+        <option value="$PROJECT_DIR$/model_train.py" />
       </list>
     </option>
   </component>
@@ -171,29 +177,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.model_test">
-    <configuration name="KillTags" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="CitiCup-ModelAnalysis-NeuralNetwork" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/KillTags.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.model_train">
     <configuration name="model_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="CitiCup-ModelAnalysis-NeuralNetwork" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -208,6 +192,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/model_test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="model_train" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="CitiCup-ModelAnalysis-NeuralNetwork" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/model_train.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -284,11 +290,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.model_train" />
         <item itemvalue="Python.model_test" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.train" />
         <item itemvalue="Python.word2vec" />
-        <item itemvalue="Python.KillTags" />
       </list>
     </recent_temporary>
   </component>
@@ -309,12 +315,12 @@
       <workItem from="1561945437884" duration="8846000" />
       <workItem from="1561961641109" duration="4924000" />
       <workItem from="1561970322031" duration="935000" />
-      <workItem from="1561979471290" duration="2942000" />
+      <workItem from="1561979471290" duration="5486000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40124000" />
+    <option name="totallyTimeSpent" value="42668000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
@@ -325,7 +331,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3580902" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3580902" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -376,23 +382,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model_train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="16" selection-start-line="16" selection-end-line="19" selection-end-column="42" />
-          <folding>
-            <element signature="e#79#113#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/smart_open/smart_open_lib.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9500">
-          <caret line="388" column="37" selection-start-line="388" selection-start-column="37" selection-end-line="388" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/smart_open/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
@@ -416,8 +405,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/model_test.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1900">
+          <caret line="76" column="11" selection-start-line="76" selection-start-column="11" selection-end-line="76" selection-end-column="11" />
+          <folding>
+            <element signature="e#79#113#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/smart_open/smart_open_lib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9428">
+          <caret line="392" selection-start-line="392" selection-end-line="392" />
+          <folding>
+            <element signature="e#309#322#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model_train.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
+          <caret line="42" column="50" lean-forward="true" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
           <folding>
             <element signature="e#79#113#0" expanded="true" />
           </folding>
