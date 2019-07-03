@@ -9,7 +9,7 @@ import xlrd
 from xlutils.copy import copy
 
 global MODEL_NAME, TARGET_FILE_NAME, TARGET_LIST, WORD_LIST
-MODEL_NAME = 'CitiCup.model'            # 模型名
+MODEL_NAME = 'CitiCup_500.model'            # 模型名
 TARGET_FILE_NAME = '600054_3.txt'       # 待分析文件名
 TARGET_LIST = [['董事会', '组成'], ['全年', '收入'], ['股权', '分配']]   # 指标列表
 WORD_LIST = []                          # 待分析词列表
@@ -51,12 +51,12 @@ def cut_txt():
 ##########################################
 def check_grade():
     global MODEL_NAME, TARGET_LIST, WORD_LIST
-    xlsx_file = xlrd.open_workbook('model.xls')                # 获取表格文件
+    xlsx_file = xlrd.open_workbook('model_500.xls')         # 获取表格文件
     xlsx_file_copy = copy(xlsx_file)
     xlsx_table = xlsx_file_copy.get_sheet(0)
-    model = word2vec.Word2Vec.load(MODEL_NAME)                  # 加载已训练好的模型
+    model = word2vec.Word2Vec.load(MODEL_NAME)          # 加载已训练好的模型
     for index, lists in enumerate(WORD_LIST):
-        for key_index, keys in enumerate(TARGET_LIST):          # 计算两个词的相似度/相关程度
+        for key_index, keys in enumerate(TARGET_LIST):  # 计算两个词的相似度/相关程度
             time_list = []
             for key_word in keys:
                 time = 0
@@ -71,7 +71,7 @@ def check_grade():
             print("指标"+str(keys)+"在第"+str(index+1)+"段中匹配的次数为"+str(time_list))
             xlsx_table.write(index+1, key_index+1, str(time_list))
     print("-------------------------------\n")
-    xlsx_file_copy.save('model.xls')
+    xlsx_file_copy.save('model_500.xls')
 
 
 def main():
