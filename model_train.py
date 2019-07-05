@@ -10,7 +10,7 @@ import logging
 import os
 
 global MODEL_NAME, CUT_FILE
-MODEL_NAME = 'CitiCup_500.model'    # 模型名
+MODEL_NAME = 'CitiCup_2.model'    # 模型名
 CUT_FILE = 'CitiCup_cut.txt'    # 词库文件名
 
 
@@ -20,7 +20,7 @@ CUT_FILE = 'CitiCup_cut.txt'    # 词库文件名
 ##########################################
 def train_step():
     global MODEL_NAME, CUT_FILE
-    for i in range(500):
+    for i in range(2):
         cut_txt('train/'+str(i+1) + '.dd')
         print('正在处理第' + str(i+1) + '个文件')
     if not os.path.exists(MODEL_NAME):     # 判断文件是否存在
