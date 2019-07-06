@@ -12,22 +12,12 @@ from target import Target
 from xlutils.copy import copy
 
 global MODEL_NAME, TARGET_FILE_NAME, TARGET_LIST, WORD_LIST
-MODEL_NAME = 'models\CitiCup_1000.model.bin'            # 模型名
-TARGET_FILE_NAME = 'test\\600054_3.txt'       # 待分析文件名
-WORD_LIST = []                          # 待分析词列表
+MODEL_NAME = 'models\CitiCup_1000.model.bin'    # 模型名
+TARGET_FILE_NAME = 'test\\600054_3.txt'         # 待分析文件名
+WORD_LIST = []                                  # 待分析词列表
 TARGET_LIST = [
+    # 充分性
     [
-        Target('1公司年报是否披露主要的财务指标', [
-            ['资产', '负债率'],
-            ['流动', '比率'],
-            ['速动', '比率'],
-            ['应收', '账款', '周转率'],
-            ['存货', '周转率'],
-            ['资本金', '利润率'],
-            ['销售', '利润率'],
-            ['营业', '收入', '利润率'],
-            ['成本', '费用', '利润率']
-        ], 'struct'),
         Target('1公司年报是否披露主要的财务指标', [
             ['资产', '负债率'],
             ['流动', '比率'],
@@ -62,19 +52,19 @@ TARGET_LIST = [
         Target('5投资项目未达到计划进度和收益的，公司是否披露原因', [
             ['项目', '受挫', '原因'],
             ['项目', '失败', '原因'],
-            ['项目', '未到', '计划', '原因']
+            ['未到', '计划', '原因']
         ], 'union'),
         Target('6公司募集资金投资项目变更的是否披露变更原因', [
-            ['投资', '项目', '变更', '原因'],
-            ['放弃', '项目']
+            ['投资', '变更', '原因'],
+            ['放弃', '项目', '原因']
         ], 'union'),
         Target('7公司年报是否说明关联交易的必要性、持续性', [
             ['关联', '交易'],
             ['经营', '租赁'],
             ['融资', '租赁'],
             ['代理', '销售'],
-            ['代理', '签订', '合同'],
-            ['研究', '开发', '转移'],
+            ['代理', '签订'],
+            ['研发', '转移'],
             ['许可', '协议']
         ], 'union'),
         Target('8公司若不存在重大诉讼、仲裁事项，是否在年报中明确声明', [
@@ -89,7 +79,7 @@ TARGET_LIST = [
             ['审计','费用']
         ], 'struct'),
         Target('10若不存在任何重大担保合同，公司是否在年报中声明', [
-            ['没有', '担保', '合同']
+            ['担保', '合同']
         ], 'struct'),
         Target('11公司年报是否披露更换会计事务所的原因', [
             ['会计', '事务所', '变更', '原因']
@@ -97,16 +87,11 @@ TARGET_LIST = [
         Target('12公司是否披露社会责任报告书', [
             ['社会', '责任', '报告']
         ], 'struct'),
-        Target('13年报中是否披露公司建有网站', [
-            ['本公司', '网址']
-        ], 'struct'),
-        Target('14公司年报中是否披露重要的会计政策', [
+        Target('13公司年报中是否披露重要的会计政策', [
             ['会计', '政策']
-        ], 'struct'),
-        Target('15是否及时披露董事会、监事会和股东大会的决议报告', [
-            ['决议', '日期']
         ], 'struct')
     ],
+    # 可比性
     [
         Target('1是否未发生会计变更', [
             ['未发生', '会计', '政策', '变更'],
@@ -117,25 +102,36 @@ TARGET_LIST = [
             ['会计', '变更', '原因']
         ], 'struct')
     ],
+    # 准时性
     [
-        Target('1两职分离能有效地提高监督和控制经理层的能力、维护董事会的独立性、保证会计信息披露质量。', [
+        Target('1是否及时披露董事会、监事会和股东大会的决议报告', [
+            ['决议', '刊登', '日期']
+        ], 'struct')
+    ],
+    # 真实性
+    [
+        Target('6两职分离能有效地提高监督和控制经理层的能力、维护董事会的独立性、保证会计信息披露质量。', [
             ['两职', '分离'],
             ['两权', '分离']
         ], 'union'),
-        Target('2是否有独立董事', [
+        Target('7是否有独立董事', [
             ['独立', '董事']
         ], 'struct'),
-        Target('3是否有审计委员会', [
+        Target('8是否有审计委员会', [
             ['审计', '委员会']
         ], 'struct'),
-        Target('4公司是否披露内部控制', [
+        Target('9公司是否披露内部控制', [
             ['组织', '控制'],
             ['人员', '控制'],
             ['职务', '控制'],
             ['业务', '控制'],
             ['授权', '控制']
+        ], 'struct'),
+        Target('10是否有审计委员会', [
+            ['内部', '控制', '鉴证', '报告']
         ], 'struct')
     ],
+    # 相关性
     [
         Target('1公司是否根据风险情况，披露拟采取的对策', [
             ['风险', '预防']
@@ -166,6 +162,12 @@ TARGET_LIST = [
             ['面临', '风险'],
             ['潜在', '威胁']
         ], 'union')
+    ],
+    # 易得性
+    [
+        Target('1年报中是否披露公司建有网站', [
+            ['本', '公司', '网址']
+        ], 'struct')
     ]
 ]
 
@@ -206,13 +208,13 @@ def check_grade():
     global MODEL_NAME, TARGET_LIST, WORD_LIST
     xlsx_file = openpyxl.load_workbook('output\model_1000.xlsx')         # 获取表格文件
     model = gensim.models.KeyedVectors.load_word2vec_format(MODEL_NAME, binary=True)          # 加载已训练好的模型
-
-    for index, lists in enumerate(WORD_LIST):
-        for target_index, sub_target_list in enumerate(TARGET_LIST):  # 计算两个词的相似度/相关程度
-            for sub_target_index, target in enumerate(sub_target_list):
-                xlsx_file.worksheets[target_index].cell(1, sub_target_index+2, target.name)
-                if target.type == "struct":
-                    for value_list in target.value_list:
+    for target_index, sub_target_list in enumerate(TARGET_LIST):  # 计算两个词的相似度/相关程度
+        for sub_target_index, target in enumerate(sub_target_list):
+            xlsx_file.worksheets[target_index].cell(1, sub_target_index + 2, target.name)
+            if target.type == "struct":
+                for value_list in target.value_list:
+                    max_time_list = []
+                    for index, lists in enumerate(WORD_LIST):
                         time_list = []
                         for key_word in value_list:
                             time = 0
@@ -224,14 +226,26 @@ def check_grade():
                                 except KeyError:
                                     pass
                             time_list.append(time)
-                        print("指标" + str(value_list) + "在第" + str(index + 1) + "段中匹配的次数为" + str(time_list))
-                        old_cell_value = str(xlsx_file.worksheets[target_index].cell(row=index + 2, column=sub_target_index + 2).value)
-                        if old_cell_value != 'None':
-                            xlsx_file.worksheets[target_index].cell(index + 2, sub_target_index + 2, old_cell_value + str(time_list))
+                        if len(max_time_list) == 0:
+                            max_time_list = time_list
                         else:
-                            xlsx_file.worksheets[target_index].cell(index + 2, sub_target_index + 2, str(time_list))
-                else:
-                    for value_list in target.value_list:
+                            for i in range(len(max_time_list)):
+                                if max_time_list[i] >= time_list[i]:
+                                    break
+                                if i == len(max_time_list) - 1 and max_time_list[i] < time_list[i]:
+                                    max_time_list = time_list
+                    print("指标" + str(value_list) + "在" + str(index + 1) + "段中匹配的最大次数为" + str(max_time_list))
+                    old_cell_value = str(xlsx_file.worksheets[target_index].cell(row=2,
+                                                                                 column=sub_target_index + 2).value)
+                    if old_cell_value != 'None':
+                        xlsx_file.worksheets[target_index].cell(2, sub_target_index + 2,
+                                                                old_cell_value + str(max_time_list))
+                    else:
+                        xlsx_file.worksheets[target_index].cell(2, sub_target_index + 2, str(max_time_list))
+            else:
+                max_time_list = []
+                for value_list in target.value_list:
+                    for index, lists in enumerate(WORD_LIST):
                         time_list = []
                         for key_word in value_list:
                             time = 0
@@ -243,12 +257,16 @@ def check_grade():
                                 except KeyError:
                                     pass
                             time_list.append(time)
-                        print("指标" + str(value_list) + "在第" + str(index + 1) + "段中匹配的次数为" + str(time_list))
-                        old_cell_value = str(xlsx_file.worksheets[target_index].cell(row=index + 2, column=sub_target_index + 2).value)
-                        if old_cell_value != 'None':
-                            xlsx_file.worksheets[target_index].cell(index + 2, sub_target_index + 2, old_cell_value + str(time_list))
+                        if len(max_time_list) == 0:
+                            max_time_list = time_list
                         else:
-                            xlsx_file.worksheets[target_index].cell(index + 2, sub_target_index + 2, str(time_list))
+                            for i in range(len(max_time_list)):
+                                if max_time_list[i] >= time_list[i]:
+                                    break
+                                if i == len(max_time_list) - 1 and max_time_list[i] < time_list[i]:
+                                    max_time_list = time_list
+                print("指标" + str(value_list) + "在" + str(index + 1) + "段中匹配的最大次数为" + str(max_time_list))
+                xlsx_file.worksheets[target_index].cell(2, sub_target_index + 2, str(max_time_list))
 
     xlsx_file.save(filename='output\model_1000.xlsx')
 
