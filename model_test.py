@@ -4,16 +4,15 @@
 # 2019/7/1 v1.0
 #
 ########################
-from gensim.models import word2vec
 import openpyxl
 import gensim
 import jieba
 from target import Target
-from xlutils.copy import copy
 
 global MODEL_NAME, TARGET_FILE_NAME, TARGET_LIST, WORD_LIST
-MODEL_NAME = 'models\CitiCup_1000.model.bin'    # 模型名
+MODEL_NAME = 'models\CitiCup_2000.model.bin'    # 模型名
 TARGET_FILE_NAME = 'test\\600054_3.txt'         # 待分析文件名
+SAVE_FILE_NAME = 'output\model_2000.xlsx'
 WORD_LIST = []                                  # 待分析词列表
 TARGET_LIST = [
     # 充分性
@@ -205,10 +204,10 @@ def cut_txt():
 # 相似度检测
 ##########################################
 def check_grade():
-    global MODEL_NAME, TARGET_LIST, WORD_LIST
-    xlsx_file = openpyxl.load_workbook('output\model_1000.xlsx')         # 获取表格文件
-    model = gensim.models.KeyedVectors.load_word2vec_format(MODEL_NAME, binary=True)          # 加载已训练好的模型
-    for target_index, sub_target_list in enumerate(TARGET_LIST):  # 计算两个词的相似度/相关程度
+    global MODEL_NAME, TARGET_LIST, WORD_LIST, SAVE_FILE_NAME
+    xlsx_file = openpyxl.load_workbook(SAVE_FILE_NAME)                                  # 获取表格文件
+    model = gensim.models.KeyedVectors.load_word2vec_format(MODEL_NAME, binary=True)    # 加载已训练好的模型
+    for target_index, sub_target_list in enumerate(TARGET_LIST):                        # 计算两个词的相似度/相关程度
         for sub_target_index, target in enumerate(sub_target_list):
             xlsx_file.worksheets[target_index].cell(1, sub_target_index + 2, target.name)
             if target.type == "struct":
@@ -268,7 +267,7 @@ def check_grade():
                 print("指标" + str(value_list) + "在" + str(index + 1) + "段中匹配的最大次数为" + str(max_time_list))
                 xlsx_file.worksheets[target_index].cell(2, sub_target_index + 2, str(max_time_list))
 
-    xlsx_file.save(filename='output\model_1000.xlsx')
+    xlsx_file.save(filename=SAVE_FILE_NAME)
 
 
 def main():
