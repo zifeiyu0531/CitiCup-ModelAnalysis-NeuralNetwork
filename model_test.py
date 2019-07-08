@@ -4,16 +4,18 @@
 # 2019/7/1 v1.0
 #
 ########################
-import openpyxl
 import gensim
 import jieba
+import os
 from target import Target
+from OtherTargets import OtherTargets
 
-global MODEL_NAME, TARGET_FILE_NAME, TARGET_LIST, WORD_LIST
+global MODEL_NAME, TARGET_LIST, WORD_LIST, TIME_TARGET, OTHER_TARGET, RESULT
 MODEL_NAME = 'models\CitiCup_2000.model.bin'    # 模型名
-TARGET_FILE_NAME = 'test\\600054_3.txt'         # 待分析文件名
-SAVE_FILE_NAME = 'output\model_2000.xlsx'
 WORD_LIST = []                                  # 待分析词列表
+TIME_TARGET = [[]]
+OTHER_TARGET = []
+RESULT = []
 TARGET_LIST = [
     # 充分性
     [
@@ -105,7 +107,13 @@ TARGET_LIST = [
     [
         Target('1是否及时披露董事会、监事会和股东大会的决议报告', [
             ['决议', '刊登', '日期']
-        ], 'struct')
+        ], 'struct'),
+        Target('2公司第一季报是否按法定时间披露', [], 'time_target', []),
+        Target('3公司中报是否按法定时间披露', [], 'time_target', []),
+        Target('4公司中报是否一个月内披露', [], 'time_target', []),
+        Target('5公司第三季报是否按法定时间披露', [], 'time_target', []),
+        Target('6年报是否在法定时间披露', [], 'time_target', []),
+        Target('7年报是否在会计年度结束后两个月内披露', [], 'time_target', [])
     ],
     # 真实性
     [
@@ -128,7 +136,10 @@ TARGET_LIST = [
         ], 'struct'),
         Target('10是否有审计委员会', [
             ['内部', '控制', '鉴证', '报告']
-        ], 'struct')
+        ], 'struct'),
+        Target('11证监会对于信息披露不按期行为给予公开谴责', [], 'other', []),
+        Target('12证监会对于信息披露不真实行为给予公开谴责', [], 'other', []),
+        Target('13注册会计师出具的审计报告体现了被审单位信息披露的质量，标准无保留意见', [], 'other', [])
     ],
     # 相关性
     [
@@ -172,22 +183,32 @@ TARGET_LIST = [
 
 
 ##########################################
-# test_step()
+# get_result()
 # 验证过程入口函数
 ##########################################
-def test_step():
-    cut_txt()
-    check_grade()
+def get_result(company_id):
+    global TIME_TARGET, OTHER_TARGET, RESULT
+    other_target = OtherTargets(company_id = company_id)
+    TIME_TARGET, OTHER_TARGET = other_target.get_targets()
+    file_name_lists = os.listdir('dds/' + company_id)
+    dir_path = 'dds/' + company_id
+    for index, file_name in enumerate(file_name_lists):
+        path = os.path.join(dir_path, file_name)
+        cut_txt(path)
+        check_grade(index)
+        save_grade(file_name)
+    print(str(RESULT))
+    return RESULT
 
 
 ##########################################
 # cut_txt()
 # 将待验证文件分词，存入WORD_LIST
 ##########################################
-def cut_txt():
-    global TARGET_FILE_NAME, WORD_LIST
+def cut_txt(path):
+    global WORD_LIST
     try:
-        old_file = open(TARGET_FILE_NAME, 'r', encoding='utf-8')
+        old_file = open(path, 'r', encoding='utf-8')
         section_list = old_file.read().split('$')               # 分段
         for section in section_list:                            # 将段落分词，存入WORD_LIST
             cut_text = jieba.cut(section, cut_all=False)
@@ -203,13 +224,11 @@ def cut_txt():
 # check_grade()
 # 相似度检测
 ##########################################
-def check_grade():
-    global MODEL_NAME, TARGET_LIST, WORD_LIST, SAVE_FILE_NAME
-    xlsx_file = openpyxl.load_workbook(SAVE_FILE_NAME)                                  # 获取表格文件
+def check_grade(time_target_index):
+    global MODEL_NAME, TARGET_LIST, WORD_LIST, TIME_TARGET, OTHER_TARGET
     model = gensim.models.KeyedVectors.load_word2vec_format(MODEL_NAME, binary=True)    # 加载已训练好的模型
     for target_index, sub_target_list in enumerate(TARGET_LIST):                        # 计算两个词的相似度/相关程度
         for sub_target_index, target in enumerate(sub_target_list):
-            xlsx_file.worksheets[target_index].cell(1, sub_target_index + 2, target.name)
             if target.type == "struct":
                 for value_list in target.value_list:
                     max_time_list = []
@@ -234,14 +253,10 @@ def check_grade():
                                 if i == len(max_time_list) - 1 and max_time_list[i] < time_list[i]:
                                     max_time_list = time_list
                     print("指标" + str(value_list) + "在" + str(index + 1) + "段中匹配的最大次数为" + str(max_time_list))
-                    old_cell_value = str(xlsx_file.worksheets[target_index].cell(row=2,
-                                                                                 column=sub_target_index + 2).value)
-                    if old_cell_value != 'None':
-                        xlsx_file.worksheets[target_index].cell(2, sub_target_index + 2,
-                                                                old_cell_value + str(max_time_list))
-                    else:
-                        xlsx_file.worksheets[target_index].cell(2, sub_target_index + 2, str(max_time_list))
-            else:
+                    target.append_time_list(max_time_list)
+                    target.is_check_func()
+                target.get_grade()
+            elif target.type == "union":
                 max_time_list = []
                 for value_list in target.value_list:
                     for index, lists in enumerate(WORD_LIST):
@@ -265,13 +280,38 @@ def check_grade():
                                 if i == len(max_time_list) - 1 and max_time_list[i] < time_list[i]:
                                     max_time_list = time_list
                 print("指标" + str(value_list) + "在" + str(index + 1) + "段中匹配的最大次数为" + str(max_time_list))
-                xlsx_file.worksheets[target_index].cell(2, sub_target_index + 2, str(max_time_list))
+                target.append_time_list(max_time_list)
+                target.is_check_func()
+                target.get_grade()
+            elif type == 'time_target':
+                target.is_check = TIME_TARGET[time_target_index][sub_target_index - 1]
+                target.grade = target.is_check
+            else:
+                target.is_check = OTHER_TARGET[sub_target_index - 10]
+                target.grade = target.is_check
+    WORD_LIST = []
 
-    xlsx_file.save(filename=SAVE_FILE_NAME)
 
+def save_grade(file_name):
+    global TARGET_LIST, RESULT
+    value_list = []
+    for target in TARGET_LIST:
+        value = {
+            'type' : target.get_family(),
+            'name' : target.name,
+            'grade' : target.grade,
+            'is_check' : target.is_check
+        }
+        value_list.extend(value)
+
+    temp_value = {
+        'year' : file_name[-19:-15],
+        'value' : value_list
+    }
+    RESULT.extend(temp_value)
 
 def main():
-    test_step()
+    get_result()
 
 
 if __name__ == '__main__':
