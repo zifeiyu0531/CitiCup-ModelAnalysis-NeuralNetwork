@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="32ce9eca-774c-44d7-a289-1f123019d5a9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/carculate.py" beforeDir="false" afterPath="$PROJECT_DIR$/carculate.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target.py" beforeDir="false" afterPath="$PROJECT_DIR$/target.py" afterDir="false" />
@@ -14,8 +15,8 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/CitiCup_ModelAnalysis_NeuralNetwork$OtherTargets.coverage" NAME="OtherTargets Coverage Results" MODIFIED="1562572311007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/CitiCup_ModelAnalysis_NeuralNetwork$carculate.coverage" NAME="carculate Coverage Results" MODIFIED="1562583089720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/CitiCup_ModelAnalysis_NeuralNetwork$model_test.coverage" NAME="model_test Coverage Results" MODIFIED="1562558728869" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CitiCup_ModelAnalysis_NeuralNetwork$carculate.coverage" NAME="carculate Coverage Results" MODIFIED="1562650010759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CitiCup_ModelAnalysis_NeuralNetwork$model_test.coverage" NAME="model_test Coverage Results" MODIFIED="1562648534428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CitiCup_ModelAnalysis_NeuralNetwork$model_train.coverage" NAME="model_train Coverage Results" MODIFIED="1562119846093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CitiCup_ModelAnalysis_NeuralNetwork$KillTags.coverage" NAME="KillTags Coverage Results" MODIFIED="1561703735586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CitiCup_ModelAnalysis_NeuralNetwork$test.coverage" NAME="test Coverage Results" MODIFIED="1561946236315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -27,8 +28,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/target.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="874">
+              <caret line="46" column="30" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -36,11 +37,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/model_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2489">
-              <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+            <state relative-caret-position="277">
+              <caret line="385" column="15" lean-forward="true" selection-start-line="385" selection-start-column="15" selection-end-line="385" selection-end-column="15" />
               <folding>
                 <element signature="e#79#92#0" expanded="true" />
-                <element signature="e#456#4509#0" />
               </folding>
             </state>
           </provider>
@@ -49,8 +49,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/carculate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5">
-              <caret line="259" column="35" selection-start-line="259" selection-start-column="35" selection-end-line="259" selection-end-column="35" />
+            <state relative-caret-position="5586">
+              <caret line="294" column="38" selection-start-line="294" selection-start-column="38" selection-end-line="294" selection-end-column="38" />
               <folding>
                 <element signature="e#79#94#0" expanded="true" />
               </folding>
@@ -70,7 +70,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/openpyxl/worksheet/worksheet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
+            <state relative-caret-position="4484">
               <caret line="236" selection-start-line="236" selection-end-line="236" />
             </state>
           </provider>
@@ -79,8 +79,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model_train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+            <state>
+              <caret selection-end-line="5" selection-end-column="24" />
+              <folding>
+                <element signature="e#79#113#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -162,16 +165,15 @@
         <option value="$PROJECT_DIR$/model_train.py" />
         <option value="$PROJECT_DIR$/指标/111.py" />
         <option value="$PROJECT_DIR$/OtherTargets.py" />
-        <option value="$PROJECT_DIR$/carculate.py" />
         <option value="$PROJECT_DIR$/target.py" />
+        <option value="$PROJECT_DIR$/carculate.py" />
         <option value="$PROJECT_DIR$/model_test.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="276" />
-    <option name="y" value="-12" />
-    <option name="width" value="2746" />
+    <option name="x" value="1358" />
+    <option name="width" value="1390" />
     <option name="height" value="1756" />
   </component>
   <component name="ProjectView">
@@ -179,6 +181,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -186,11 +189,15 @@
               <item name="CitiCup-ModelAnalysis-NeuralNetwork" type="b2602c69:ProjectViewProjectNode" />
               <item name="CitiCup-ModelAnalysis-NeuralNetwork" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="CitiCup-ModelAnalysis-NeuralNetwork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CitiCup-ModelAnalysis-NeuralNetwork" type="462c0819:PsiDirectoryNode" />
+              <item name="dds" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -323,8 +330,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.carculate" />
-        <item itemvalue="Python.OtherTargets" />
         <item itemvalue="Python.model_test" />
+        <item itemvalue="Python.OtherTargets" />
         <item itemvalue="Python.model_train" />
         <item itemvalue="Python.test" />
       </list>
@@ -361,23 +368,46 @@
       <workItem from="1562328718458" duration="647000" />
       <workItem from="1562377204358" duration="6179000" />
       <workItem from="1562397094609" duration="2083000" />
-      <workItem from="1562549481818" duration="24938000" />
+      <workItem from="1562549481818" duration="27437000" />
+      <workItem from="1562634880219" duration="12813000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109145000" />
+    <option name="totallyTimeSpent" value="124457000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49585062" visible="true" weight="0.13756613" />
-      <window_info id="Structure" order="1" sideWeight="0.5041494" side_tool="true" visible="true" weight="0.13756613" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49585062" visible="true" weight="0.18745276" />
+      <window_info id="Structure" order="1" sideWeight="0.5041494" side_tool="true" weight="0.13756613" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36074272" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2387268" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39920425" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32891247" />
+      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49585062" visible="true" weight="0.18745276" />
+      <window_info id="Structure" order="1" sideWeight="0.5041494" side_tool="true" weight="0.13756613" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2387268" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39920425" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -393,7 +423,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info anchor="right" id="Database" order="4" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -419,6 +449,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/指标/111.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/openpyxl/worksheet/worksheet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4484">
+          <caret line="236" selection-start-line="236" selection-end-line="236" />
         </state>
       </provider>
     </entry>
@@ -453,16 +491,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/指标/111.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/openpyxl/worksheet/worksheet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="236" selection-start-line="236" selection-end-line="236" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/OtherTargets.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -472,35 +500,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/model_train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/carculate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5">
-          <caret line="259" column="35" selection-start-line="259" selection-start-column="35" selection-end-line="259" selection-end-column="35" />
+        <state>
+          <caret selection-end-line="5" selection-end-column="24" />
           <folding>
-            <element signature="e#79#94#0" expanded="true" />
+            <element signature="e#79#113#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/target.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="874">
+          <caret line="46" column="30" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/carculate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5586">
+          <caret line="294" column="38" selection-start-line="294" selection-start-column="38" selection-end-line="294" selection-end-column="38" />
+          <folding>
+            <element signature="e#79#94#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2489">
-          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+        <state relative-caret-position="277">
+          <caret line="385" column="15" lean-forward="true" selection-start-line="385" selection-start-column="15" selection-end-line="385" selection-end-column="15" />
           <folding>
             <element signature="e#79#92#0" expanded="true" />
-            <element signature="e#456#4509#0" />
           </folding>
         </state>
       </provider>
