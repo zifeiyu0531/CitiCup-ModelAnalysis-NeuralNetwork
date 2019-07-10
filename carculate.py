@@ -210,7 +210,7 @@ TARGET_LIST = [
 # 验证过程入口函数
 ##########################################
 def test_step():
-    for i in range(100, 140):
+    for i in range(140, 150):
         cut_txt('test\\' + str(i) + '.dd')
         check_grade(i)
 
@@ -267,7 +267,7 @@ def check_grade(row_num):
                                 if i == len(max_time_list) - 1 and max_time_list[i] < time_list[i]:
                                     max_time_list = time_list
                     print("指标" + str(value_list) + "匹配的最大次数为" + str(max_time_list))
-                    AVG_LIST[row_num - 100].extend(max_time_list)
+                    AVG_LIST[row_num - 140].extend(max_time_list)
             else:
                 max_time_list = []
                 for value_list in target.value_list:
@@ -292,7 +292,7 @@ def check_grade(row_num):
                                 if i == len(max_time_list) - 1 and max_time_list[i] < time_list[i]:
                                     max_time_list = time_list
                 print("指标" + str(value_list) + "匹配的最大次数为" + str(max_time_list))
-                AVG_LIST[row_num - 100].extend(max_time_list)
+                AVG_LIST[row_num - 140].extend(max_time_list)
     WORD_LIST = []
     AVG_LIST.append([])
 
